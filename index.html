@@ -12,26 +12,25 @@ html, body {
     min-height: 100%;
 }
 body {
-    padding: 0;
+    padding: 5px;
     margin: 0;
 }
 
 footer {
-  margin-bottom: 100px;
-    position: absolute;
+  margin-top: 20px;
     bottom: 0;
     color: #FFF;
-    width: 100%;
-    height: 50px;    
-    text-align: center;
-    line-height: 100px;
+    line-height: 50px;
+    position: absolute;
+    margin-right: 0.5vw;
+    width: -webkit-fill-available;
 }
 
-nav, footer > div, aside, section, main > div{
+nav, footer > div, aside, section, main, footer{
   box-shadow: 2px 4px 2px black;
 }
 
-#login, #home {
+#login, #home, #calculator {
   position: relative;
   animation-name: main;
   animation-duration: 2s;
@@ -46,13 +45,13 @@ nav, footer > div, aside, section, main > div{
 
 </style>
 </head>
-<body style="background: #4a4e4d; max-height: 400px; display: grid">
+<body style="background: #4a4e4d; display: grid">
   <nav style="background-color: #0e9aa7;width: 100%;">
     <ul style="display: flex; justify-content:space-around; list-style-type: none;">
-      <li><a style="text-decoration: none; color: white" href="#home">Home </a></li>
-      <li><a style="text-decoration: none; color: white" href="#login">Login </a></li>
-      <li><a style="text-decoration: none; color: white" href="#">Contato </a></li>
-      <li><a style="text-decoration: none; color: white" href="#">Serviços </a></li>
+      <li><a style="text-decoration: none; color: white" href="#home">Home</a></li>
+      <li><a style="text-decoration: none; color: white" href="#login">Login</a></li>
+      <li><a style="text-decoration: none; color: white" href="#calculator">Calculator</a></li>
+      <li><a style="text-decoration: none; color: white" href="#">Serviços</a></li>
     </ul>
   </nav>
 
@@ -61,17 +60,17 @@ nav, footer > div, aside, section, main > div{
   validação diferente...</pre>
   <button onclick="closeDialog()" style="float: right">X</button>
   </dialog>
-  <main style="margin-top: 10px">
-  <div  style="width: 100%; background-color: #fe8a71">
-</div>
-</main>
-<footer>
-<div style="background-color: #3da4ab; margin-top: 20px; width: 100%; height: 100px; text-align: center">
-<h1>RODAPÉ</h1>
-</div>
-</footer>
-<img src="login.jpg" width="40" alt="aqui">
 
+  <main style="margin-top: 10px">
+  <div  style="width: 100%; background-color: #fe8a71; margin-top: 15px">
+  </div>
+
+</main>
+<footer style="background-color: #3da4ab; text-align: center">
+    <h1>RODAPÉ</h1>
+  </div>
+</footer>
+  
 </body>
 <script src="./script.js"></script>
 <script>
@@ -92,9 +91,9 @@ async function changePage(file){
   document.querySelector("main>div").innerHTML = myText;
   setTimeout(()=>{
     dialog = document.querySelector('dialog')
-    dialog.showModal()
+    // dialog.showModal()
   }
-  ,2000)
+  ,200)
 }
 
 function navegar(e){
@@ -104,6 +103,8 @@ function navegar(e){
     changePage('login.html')
   }else if(page === "home"){
     changePage('home.html')
+  }else if(page === "calculator"){
+    changePage('calculator.html')
   }
 }
 
