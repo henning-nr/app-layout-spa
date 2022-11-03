@@ -26,15 +26,15 @@ footer {
     width: -webkit-fill-available;
 }
 
-nav, footer > div, aside, section, main, footer{
+nav, footer > div, main, footer{
   box-shadow: 2px 4px 2px black;
 }
 
-#login, #home, #calculator {
+#login, #home, #calculator, #endnote {
   position: relative;
   animation-name: main;
   animation-duration: 2s;
-  border-radius: 50px;
+  border-radius: 25px;
   box-shadow: 2px 4px 2px black;
 }
 
@@ -51,7 +51,7 @@ nav, footer > div, aside, section, main, footer{
       <li><a style="text-decoration: none; color: white" href="#home">Home</a></li>
       <li><a style="text-decoration: none; color: white" href="#login">Login</a></li>
       <li><a style="text-decoration: none; color: white" href="#calculator">Calculator</a></li>
-      <li><a style="text-decoration: none; color: white" href="#">Serviços</a></li>
+      <li><a style="text-decoration: none; color: white" href="#endnote">EndNote</a></li>
     </ul>
   </nav>
 
@@ -67,7 +67,7 @@ nav, footer > div, aside, section, main, footer{
 
 </main>
 <footer style="background-color: #3da4ab; text-align: center">
-    <h1>RODAPÉ</h1>
+    <h1>Nova Roma</h1>
   </div>
 </footer>
   
@@ -105,6 +105,8 @@ function navegar(e){
     changePage('home.html')
   }else if(page === "calculator"){
     changePage('calculator.html')
+  }else if(page === "endnote"){
+    changePage('endnote.html')
   }
 }
 
