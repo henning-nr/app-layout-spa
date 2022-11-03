@@ -8,17 +8,40 @@
   <title>Document</title>
 
 <style>
+html, body {
+    min-height: 100%;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+
+footer {
+  margin-bottom: 100px;
+    position: absolute;
+    bottom: 0;
+    color: #FFF;
+    width: 100%;
+    height: 50px;    
+    text-align: center;
+    line-height: 100px;
+}
+
+nav, footer > div, aside, section, main > div{
+  box-shadow: 2px 4px 2px black;
+}
 
 #login, #home {
   position: relative;
   animation-name: main;
-  animation-duration: 3s;
-  border-radius: 50px
+  animation-duration: 2s;
+  border-radius: 50px;
+  box-shadow: 2px 4px 2px black;
 }
 
 @keyframes main {
-  25%   {background-color:grey; left:0px; top:0px;opacity: 0.4}
-  0%  {background-color: black; left:700px; top:0px; border-radius: 0px}
+  25%   {background-color:grey; left:0px; top:0px;opacity: 0.1}
+  0%  {background-color: black; left:0px; top:0px; border-radius: 0px}
 }
 
 </style>
@@ -32,19 +55,18 @@
       <li><a style="text-decoration: none; color: white" href="#">Serviços </a></li>
     </ul>
   </nav>
-  <!-- <nav>
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
-  </div>
-</nav> -->
-  <main style="margin-top: 20px">
 
-</main>
+  <dialog style="z-index: 1000; position: fixed">
+  <pre>Esta é uma tela de login básica, com um tipo de 
+  validação diferente...</pre>
+  <button onclick="closeDialog()" style="float: right">X</button>
+  </dialog>
+
+  <main style="margin-top: 10px">
+  <div  style="width: 100%; background-color: #fe8a71">
+  </div>
+
+  </main>
 <footer>
 <div style="background-color: #3da4ab; margin-top: 20px; width: 100%; height: 100px; text-align: center">
     <h1>RODAPÉ</h1>
@@ -52,6 +74,7 @@
 </footer>
   
 </body>
+<script src="./script.js"></script>
 <script>
 var data = {}
 document.addEventListener('DOMContentLoaded',
@@ -67,7 +90,12 @@ for(let li of list){
 async function changePage(file){
   let myObject = await fetch(file);
   let myText = await myObject.text();
-  document.querySelector("main").innerHTML = myText;
+  document.querySelector("main>div").innerHTML = myText;
+  setTimeout(()=>{
+    dialog = document.querySelector('dialog')
+    dialog.showModal()
+  }
+  ,2000)
 }
 
 function navegar(e){
@@ -101,6 +129,11 @@ function changePosition(){
 
 function sendValues(){
   alert(JSON.stringify(data))
+}
+
+function closeDialog(){
+  dialog = document.querySelector('dialog')
+  dialog.close()
 }
 </script>
 </html>

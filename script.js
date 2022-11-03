@@ -1,1 +1,3 @@
-console.log('Hello!');
+function cliquei(){
+  console.log('cliquei')
+}

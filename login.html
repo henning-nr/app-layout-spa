@@ -1,14 +1,25 @@
-<div  style="width: 100%; background-color: #fe8a71">
+
+<style>
+input:focus {
+  border: 8px solid red
+}
+</style>
+
+<dialog style="z-index: 1000; position: fixed">
+<pre>Esta é uma tela de login básica, com um tipo de 
+validação diferente...</pre>
+<button onclick="closeDialog()" style="float: right">X</button>
+</dialog>
+
 <div style="display: flex; flex-direction: column; justify-content: center;">
 <div id="login" style="margin: 40px; background-color: white; display: flex; justify-content:center; height: 200px; padding: 40px">
 <div >
 <h1 style="margin-top: -1px">Login</h1>
-  Email: <input name="email" type="text"><br><br>
-  Senha: <input name="password" type="password">
+  Email: <input autocomplete="none" onclick="cliquei()" style="height: 25px; border-radius: 10px" name="email" type="text"><br><br>
+  Senha: <input style="height: 25px" name="password" type="password">
   <br><br>
-  <input onmouseover="changePosition()" onclick="sendValues()" value="Enviar" type="button">
+  <input style="background-color: black; color: white; border-radius: 4px" onmouseover="changePosition()" onclick="sendValues()" value="Enviar" type="button">
   </div>
-</div>
 </div>
 </div>
 
