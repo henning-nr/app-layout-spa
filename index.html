@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="./styles.css"> -->
+  <title>Document</title>
+
+<style>
+
+#login, #home {
+  position: relative;
+  animation-name: main;
+  animation-duration: 3s;
+  border-radius: 50px
+}
+
+@keyframes main {
+  25%   {background-color:grey; left:0px; top:0px;opacity: 0.4}
+  0%  {background-color: black; left:700px; top:0px; border-radius: 0px}
+}
+
+</style>
+</head>
+<body style="background: #4a4e4d; max-height: 400px; display: grid">
+  <nav style="background-color: #0e9aa7;width: 100%;">
+    <ul style="display: flex; justify-content:space-around; list-style-type: none;">
+      <li><a style="text-decoration: none; color: white" href="#home">Home </a></li>
+      <li><a style="text-decoration: none; color: white" href="#login">Login </a></li>
+      <li><a style="text-decoration: none; color: white" href="#">Contato </a></li>
+      <li><a style="text-decoration: none; color: white" href="#">Serviços </a></li>
+    </ul>
+  </nav>
+  <!-- <nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">JavaScript</a></li>
+    </ul>
+  </div>
+</nav> -->
+  <main style="margin-top: 20px">
+
+</main>
+<footer>
+<div style="background-color: #3da4ab; margin-top: 20px; width: 100%; height: 100px; text-align: center">
+    <h1>RODAPÉ</h1>
+  </div>
+</footer>
+  
+</body>
+<script>
+var data = {}
+document.addEventListener('DOMContentLoaded',
+  changePage('home.html')
+)
+
+
+list = document.querySelectorAll('a')
+for(let li of list){
+  li.addEventListener('click', navegar)
+}
+
+async function changePage(file){
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  document.querySelector("main").innerHTML = myText;
+}
+
+function navegar(e){
+  console.log(this.innerHTML.toLowerCase().trim())
+  let page = this.innerHTML.toLowerCase().trim()
+  if(page === "login"){
+    changePage('login.html')
+  }else if(page === "home"){
+    changePage('home.html')
+  }
+}
+
+function changePosition(){
+  send = document.querySelector('[value="Enviar"]')
+  email = document.querySelector('[name="email"]')
+  password = document.querySelector('[name="password"]')
+
+  if(email.value === '' || password.value === ''){
+    if(send.style.float === 'right'){
+      send.style.float = 'left'
+    }else{
+      send.style.float = 'right'
+    }
+  }else{
+    data = {
+      email: email.value ,
+      password: password.value 
+    }
+  }
+}
+
+function sendValues(){
+  alert(JSON.stringify(data))
+}
+</script>
+</html>
