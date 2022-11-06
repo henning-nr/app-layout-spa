@@ -1,5 +1,54 @@
-<div style="display: flex; flex-direction: column; justify-content: center; text-align: center; padding-top: 0px">
-<div id="endnote" style="margin: 40px; background-color: white; display: flex; justify-content:center; height: 200px; padding: 40px;">
-<h1>Endnote</h1>
+<div style="display: flex;  justify-content: center; text-align: center; padding-top: 0px">
+<div id="endnote" style="margin: 40px; background-color: white; display: flex; flex-direction: column; justify-content:end; height: 230px; padding: 40px; width: 50vh">
+<h1 style="
+fflex: auto;
+    margin-bottom: 0px;;
+">Endnote</h1>
+<div style="    display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin-left: -9px;">
+<div style="width: 45%">
+<label style="display: flex;" for="nota1">Nome aluno</label>
+<input id="nome" placeholder="nome" name="nome" type="text">
+</div>
+<div style="width: 45%">
+<label style="display: flex;" for="nota1">Curso</label>
+<input id="curso" placeholder="curso" name="curso" type="text">
+</div>
+</div>
+</br>
+<div class="max-width">
+<div class="imageContainer">
+    <img style="    bottom: 45px;
+    position: absolute;
+    left: 41px;" width="150" height="150" onclick="clickPhoto()" src="" alt="Clique aqui para selecionar uma imagem do arquivo" id="imgPhoto">
+</div>
+</div>
+
+<input style="display: contents" onchange="changeFile()" type="file" placeholder="oi" value="Enviar" id="flImage" name="fImage" accept="image/*">
+<div style="margin-left: 171px;">
+<div style="width: 45%">
+<label style="display: flex;" for="nota1">Nota 1</label>
+<input id="nota1" placeholder="nota1" name="nota1" type="text">
+</div>
+<div style="width: 45%">
+<label style="display: flex;" for="nota1">Nota 1</label>
+<input id="nota2" placeholder="nota2" name="nota2" type="text">
+</div>
+<div style="width: 45%">
+<label style="display: flex;" for="nota1">Nota 1</label>
+<input id="nota3" placeholder="nota3" name="nota3" type="text">
+</div>
+<div style="width: 45%">
+<label style="display: flex;" for="nota1">Nota 1</label>
+<input id="nota4" placeholder="nota4" name="nota4" type="text">
+</div>
+</div>
+
+<input style="margin-bottom: -30px;
+width: 54.9vh;
+margin-left: -9px;
+margin-top: 10px" type="button" value="Calcular">
 </div>
 </div>

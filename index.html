@@ -79,6 +79,8 @@ nav, footer > div, main, footer{
 <script src="./script.js"></script>
 <script>
 var data = {}
+var photo = ''
+var file = ''
 document.addEventListener('DOMContentLoaded',
   changePage('home.html')
 )
@@ -120,7 +122,27 @@ function navegar(e){
     changePage('calculator.html')
   }else if(page === "endnote"){
     changePage('endnote.html')
+    setTimeout(()=>{
+      photo = document.getElementById('imgPhoto');
+      file = document.getElementById('flImage');
+    }
+      ,1000
+    )
   }
+}
+
+function clickPhoto(){
+  file.click();
+}
+function changeFile(){
+  if (file.files.length <= 0) {
+        return;
+    }
+    let reader = new FileReader();
+    reader.onload = () => {
+        photo.src = reader.result;
+    }
+    reader.readAsDataURL(file.files[0]);
 }
 
 addEvent(lists,'click', navegar)
@@ -154,5 +176,6 @@ function closeDialog(){
   dialog = document.querySelector('dialog')
   dialog.close()
 }
+
 </script>
 </html>
