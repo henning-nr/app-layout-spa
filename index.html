@@ -16,6 +16,10 @@ body {
     margin: 0;
 }
 
+.calculator:active{
+  background-color: white !important;
+  color: black !important;
+}
 footer {
   margin-top: 20px;
     bottom: 0;
@@ -79,10 +83,19 @@ document.addEventListener('DOMContentLoaded',
   changePage('home.html')
 )
 
+lists = document.querySelectorAll('a')
+keysCalc = document.querySelectorAll('[class="calculator"]')
 
-list = document.querySelectorAll('a')
-for(let li of list){
-  li.addEventListener('click', navegar)
+function addEvent(elements,event, funcEvent){
+  for(let element of elements){
+    element.addEventListener(event, funcEvent)
+  }
+}
+
+function clicar(e){
+  displayCalc = document.getElementById('display-calc')
+  displayCalc.innerText += e;
+  console.log(displayCalc)
 }
 
 async function changePage(file){
@@ -109,6 +122,10 @@ function navegar(e){
     changePage('endnote.html')
   }
 }
+
+addEvent(lists,'click', navegar)
+addEvent(keysCalc,'blur', clicar)
+
 
 function changePosition(){
   send = document.querySelector('[value="Enviar"]')
